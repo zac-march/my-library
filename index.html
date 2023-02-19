@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Library</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
     <header>
@@ -15,12 +15,12 @@
         <li><button>New book</button></li>
       </ul>
     </header>
-    <main>
+    <main id="main">
       <div class="book-card">
-        <h2 id="book-title">Catcher of the Fries</h2>
-        <h3 id="book-author">by Steve Marshall</h2>
-        <h3>421 pages</h3>
-        <button id="book-read">Not read</button>
+        <h2 class="book-title">titles</h2>
+        <h3 class="book-author">author</h2>
+        <h3 class="book-pages">00 pages</h3>
+        <button class="book-read">Not read</button>
         <button class="book-remove">X</button>
       </div>
     </main>
