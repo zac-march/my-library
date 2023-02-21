@@ -9,11 +9,23 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div id="overlay"><h1>BRUH</h1></div>
+    <div class="form-overlay">
+        <form id="new-book-form">
+            <h1>add book</h1>
+            <input placeholder="Title" id="title" name="title" type="text" required></input>
+            <input placeholder="Author" id="author" name="author" type="text" required></input>
+            <input placeholder="Pages" id="pages" name="pages" type="number" required></input>
+            <div class="read">
+                <label for="read">Have you read it?</label>
+                <input id="read" name="read" type="checkbox" class="checkbox"></input>
+            </div>
+            <button id="submit" type="submit">Add</button>
+        </form>
+    </div>
     <header>
       <h1>myLibrary</h1>
       <ul class="actions">
-        <li><button id="new-book">New book</button></li>
+        <li><button id="new-book">Add a book</button></li>
       </ul>
     </header>
     <main id="main">
@@ -22,7 +34,7 @@
         <h3 class="book-author">author</h2>
         <h3 class="book-pages">00 pages</h3>
         <button class="book-read">Not read</button>
-        <button class="book-remove">X</button>
+        <button class="book-remove">x</button>
       </div>
     </main>
     <footer>Zac's website</footer>

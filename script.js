@@ -1,6 +1,8 @@
 const mainDiv = document.querySelector("main");
 const bookCardTemplate = document.querySelector("#bruh");
 const newBookBtn = document.querySelector("#new-book");
+const formContainer = document.querySelector(".form-overlay");
+const form = document.querySelector("#new-book-form");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -12,6 +14,7 @@ function Book(title, author, pages, read) {
 Book.prototype.hasRead = function () {
   return this.read ? "read" : "not read yet";
 };
+
 let library = [];
 
 function addBook() {
@@ -33,6 +36,18 @@ function updateLibraryDisplay() {
 }
 
 newBookBtn.addEventListener("click", () => {
-  addBook("tesasdsadasdt", "Testing", 22, true);
-  updateLibraryDisplay();
+  formContainer.style.display = "flex";
 });
+
+form.onsubmit = (e) => {
+  console.log(document.getElementById("read"));
+  e.preventDefault();
+  addBook(
+    document.getElementById("title").value,
+    document.getElementById("author").value,
+    document.getElementById("pages").value,
+    document.getElementById("read").checked
+  );
+  updateLibraryDisplay();
+  formContainer.style.display = "none";
+};
