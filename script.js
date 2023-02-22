@@ -91,6 +91,13 @@ newBookBtn.addEventListener("click", () => {
   formContainer.style.display = "flex";
 });
 
+formContainer.addEventListener("click", (e) => {
+  if (e.target == formContainer) {
+    formContainer.style.display = "none";
+    form.reset();
+  }
+});
+
 form.onsubmit = (e) => {
   e.preventDefault();
   addBook(
@@ -102,13 +109,14 @@ form.onsubmit = (e) => {
   );
   updateLibraryDisplay();
   formContainer.style.display = "none";
+  form.reset();
 };
 
 document.addEventListener(
   "keydown",
   (event) => {
     if (event.code == "Numpad8") {
-      generateFakeEntries(10);
+      generateFakeEntries(5);
       updateLibraryDisplay();
       console.log(library.list);
     }
@@ -122,6 +130,6 @@ function generateFakeEntries(count) {
   }
 
   function generateString() {
-    return (Math.random() + 1).toString(36).substring(7);
+    return (Math.random() + 1).toString(36).substring(2);
   }
 }
