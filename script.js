@@ -6,42 +6,46 @@ const form = document.querySelector("#new-book-form");
 let readButtons = document.querySelectorAll(".book-read");
 let removeButtons = document.querySelectorAll(".book-remove");
 
-function Library(list) {
-  this.list = list;
-}
-
-Library.prototype.remove = function (index) {
-  if (index == 0) {
-    this.list.splice(index, 1);
-  } else {
-    this.list.splice(index, index);
+class Library {
+  constructor(list) {
+    this.list = list;
   }
-};
 
-Library.prototype.add = function (book) {
-  this.list.push(book);
-};
+  remove(index) {
+    if (index == 0) {
+      this.list.splice(index, 1);
+    } else {
+      this.list.splice(index, index);
+    }
+  }
 
-Library.prototype.getBook = function (index) {
-  return this.list[index];
-};
+  add(book) {
+    this.list.push(book);
+  }
 
-let library = new Library([]);
-
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+  getBook(index) {
+    return this.list[index];
+  }
 }
 
-Book.prototype.hasRead = function () {
-  return this.read ? "read" : "not read yet";
-};
+const library = new Library([]);
 
-Book.prototype.toggleRead = function () {
-  return this.read == true ? (this.read = false) : (this.read = true);
-};
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  hasRead() {
+    return this.read ? "read" : "not read yet";
+  }
+
+  toggleRead() {
+    return this.read == true ? (this.read = false) : (this.read = true);
+  }
+}
 
 function addBook() {
   let book = new Book(...arguments);
