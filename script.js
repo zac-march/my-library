@@ -1,5 +1,5 @@
 const mainDiv = document.querySelector("main");
-const bookCardTemplate = document.querySelector("#bruh");
+const bookCardTemplate = document.querySelector("#book-template");
 const newBookBtn = document.querySelector("#new-book");
 const formContainer = document.querySelector(".form-overlay");
 const form = document.querySelector("#new-book-form");
@@ -115,7 +115,7 @@ form.onsubmit = (e) => {
 document.addEventListener(
   "keydown",
   (event) => {
-    if (event.code == "Numpad8") {
+    if (event.code == "ArrowUp") {
       generateFakeEntries(5);
       updateLibraryDisplay();
       console.log(library.list);
